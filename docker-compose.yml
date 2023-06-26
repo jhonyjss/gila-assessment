@@ -1,0 +1,60 @@
+version: '3.9'
+
+services:
+  dev:
+    container_name: nestjs_api_dev
+    image: nestjs-api-dev:1.0.0
+    depends_on:
+      - mariadb
+    build:
+      context: .
+      target: development
+      dockerfile: ./Dockerfile
+    command: npm run start:debug
+    ports:
+      - 3000:3000
+      - 9229:9229
+    networks:
+      - webnet
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+  prod:
+    container_name: nestjs_api_prod
+    image: nestjs-api-prod:1.0.0
+    build:
+      context: .
+      target: production
+      dockerfile: ./Dockerfile
+    command: npm run start:prod
+    ports:
+      - 3000:3000
+      - 9229:9229
+    networks:
+      - webnet
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+  mariadb:
+    container_name: 'mariadb'
+    image: mariadb
+    networks:
+      - webnet
+    environment:
+      MYSQL_ROOT_HOST: 'mariadb'
+      MYSQL_ROOT_PASSWORD: 'gila'
+      MYSQL_PASSWORD: 'gila'
+      MYSQL_USER: 'gila'
+      MYSQL_DATABASE: 'gilaDB'
+    restart: always
+    expose:
+      - '3306'
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data:/var/lib/mariadb
+networks:
+  webnet:
+    driver: bridge
