@@ -1,6 +1,6 @@
 import { Factory, Seeder } from 'typeorm-seeding';
-import { DataSource } from 'typeorm';
 import { Categories } from '../src/categories/entities/categories.entity';
+import { DataSource } from 'typeorm';
 import ormconfig from '../ormconfig';
 const dataSource = new DataSource(ormconfig);
 
