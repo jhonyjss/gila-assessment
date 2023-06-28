@@ -5,6 +5,7 @@ import { CategoriesModule } from './categories/categories.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { LogsModule } from './logs/logs.module';
 import ormconfig from '../ormconfig';
 
 @Module({
@@ -13,6 +14,7 @@ import ormconfig from '../ormconfig';
     CategoriesModule,
     NotificationsModule,
     UsersModule,
+    LogsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

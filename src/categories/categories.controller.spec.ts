@@ -43,7 +43,7 @@ describe('CategoriesController', () => {
     expect(service).toBeDefined();
   });
 
-  describe('execute findAll categories', () => {
+  describe('Execute findAll categories', () => {
     it('should return an array of categories', async () => {
       const categories = [
         { id: 1, name: 'Sports' },

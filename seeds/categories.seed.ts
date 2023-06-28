@@ -22,12 +22,5 @@ export default class CreateCategories implements Seeder {
       .catch((err) => {
         console.error('Error during Data Source initialization', err);
       });
-
-    // return await datasource
-    //   .createQueryBuilder()
-    //   .insert()
-    //   .into(Categories)
-    //   .values([{ name: 'Sports' }, { name: 'Finance' }, { name: 'Movies' }])
-    //   .execute();
   }
 }
