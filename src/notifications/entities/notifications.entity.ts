@@ -11,8 +11,8 @@ export class Notifications {
   name: string;
 
   @ManyToOne(() => User, (log) => log.notifications)
-  users: User;
+  users?: User;
 
   @ManyToOne(() => Logs, (log) => log.notifications)
-  logs: Logs;
+  logs?: Logs;
 }
