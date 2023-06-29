@@ -35,14 +35,12 @@ $ yarn install
 ## Running the app
 
 ```bash
-# development
-$ yarn run start
+# First step - development - make sure to use docker and docker-compose on your machine
+$ yarn docker:dev
 
-# watch mode
-$ yarn run start:dev
+# Second step - You need to run this script to create categories, notifications ( channels ) and users
+$ yarn docker-seed:run
 
-# production mode
-$ yarn run start:prod
 ```
 
 ## Test
@@ -51,11 +49,6 @@ $ yarn run start:prod
 # unit tests
 $ yarn run test
 
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
 ```
 
 ## Support
