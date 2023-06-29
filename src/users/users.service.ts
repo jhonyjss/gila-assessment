@@ -59,4 +59,21 @@ export class UsersService {
       );
     }
   }
+
+  async findOne(id: number): Promise<User> {
+    try {
+      const logs = await this.userRepository.findOne({
+        where: {
+          id,
+        },
+        relations: ['logs', 'logs.categories', 'logs.notifications'],
+      });
+      return logs;
+    } catch (error) {
+      throw new HttpException(
+        { message: error.message },
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+  }
 }

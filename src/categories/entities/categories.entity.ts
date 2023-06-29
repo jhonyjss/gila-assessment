@@ -10,9 +10,9 @@ export class Categories {
   @Column()
   name: string;
 
-  @ManyToOne(() => Logs, (log) => log.categories)
+  /*   @ManyToOne(() => Logs, (log) => log.categories)
   logs?: Logs;
 
   @ManyToOne(() => User, (log) => log.categories)
-  users?: User;
+  users?: User; */
 }

@@ -39,7 +39,7 @@ export class User {
   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
   logs: Logs;
 
-  @OneToMany(() => Categories, (log) => log.users)
+  @OneToMany(() => Categories, (log) => log)
   @JoinColumn({ name: 'category_id', referencedColumnName: 'id' })
   categories: Categories;
 

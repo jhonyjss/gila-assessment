@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3'
 
 services:
   dev:
@@ -38,7 +38,7 @@ services:
       - /usr/src/app/node_modules
     restart: unless-stopped
   mariadb:
-    container_name: 'mariadb'
+    container_name: mariadb
     image: mariadb
     networks:
       - webnet
@@ -49,8 +49,6 @@ services:
       MYSQL_USER: 'gila'
       MYSQL_DATABASE: 'gilaDB'
     restart: always
-    expose:
-      - '3306'
     ports:
       - 3306:3306
     volumes:

@@ -13,8 +13,6 @@ RUN yarn
 
 COPY . .
 
-RUN npm run build
-
 FROM node:lts-alpine3.15 as production
 
 ARG NODE_ENV=production

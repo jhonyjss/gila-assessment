@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CategoriesModule } from './categories/categories.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LogsModule } from './logs/logs.module';
+import { ExampleModule } from './example/example.module';
 import ormconfig from '../ormconfig';
 
 @Module({
@@ -15,8 +14,7 @@ import ormconfig from '../ormconfig';
     NotificationsModule,
     UsersModule,
     LogsModule,
+    ExampleModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
